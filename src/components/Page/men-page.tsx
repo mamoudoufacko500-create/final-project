@@ -24,18 +24,13 @@ export default function MenPage() {
         <h1>Affichage des 5 résultats</h1>
         <div className="group relative">
           <span className="flex gap-2 items-center">
-            <button >Tri par défaut</button>
+            <button>Tri par défaut</button>
             {SubMenu && <LuChevronDown />}
           </span>
           {SubMenu && (
             <div className="hidden p-4 group-hover:flex flex-col absolute bg-white/50 border border-white/30 rounded-xl gap-3 top-5 left-0 w-64 ">
               {SubMenu.map((SubMenu) => (
-                <NavLink
-                  className={({ isActive }) =>
-                     isActive ? "text-black" : "text-red-500"
-                  }
-                  to={SubMenu.link}
-                >
+                <NavLink className="hover:bg-white px-4 py-1" to={SubMenu.link}>
                   {SubMenu.name}
                 </NavLink>
               ))}
@@ -51,4 +46,3 @@ export default function MenPage() {
     </div>
   );
 }
-
