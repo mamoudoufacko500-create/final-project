@@ -188,6 +188,10 @@ export default function ProductPage() {
                           />
                         </div>
                       </div>
+                      <div className="flex items-center gap-3">
+                        <input type="checkbox" className="border-gray-600" />
+                        <label htmlFor="" className="text-sm  text-gray-600">Enregistrez mon nom, mon adresse e-mail et mon site web dans ce navigateur pour mon prochain commentaire</label>
+                      </div>
                     </div>
                     <button className="bg-black text-white px-6 py-3">
                       Envoyer
