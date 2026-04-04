@@ -56,7 +56,7 @@ export default function ProductPage() {
               <span className="px-4  ">1</span>
               <button className="px-3 py-1 text-lg border">+</button>
             </div>
-            <button className="bg-gray-500 text-white px-4 py-2">
+            <button className="bg-gray-500 text-white px-4 py-2 cursor-pointer">
               Ajouter au panier
             </button>
           </div>
@@ -69,12 +69,12 @@ export default function ProductPage() {
           <div className=" space-y-3">
             <div className="relative group">
               <div className="flex justify-between border-b pb-5">
-                <button className="text-lg font-semibold">Description</button>
-                <span>
+                <h1 className="text-lg font-semibold">Description</h1>
+                <button>
                   <IoMdAdd className="font-bold" />
-                </span>
+                </button>
               </div>
-              <div className="hidden p-4 group-hover:flex flex-col  ">
+              <div className="hidden p-4 group-hover:flex flex-col transition duration-300 ">
                 <div className="border-b pb-5 space-y-8">
                   <p className="font-medium">A propos du produit</p>
                   <p>
@@ -122,22 +122,22 @@ export default function ProductPage() {
           <div>
             <div className="group relative">
               <div className="flex justify-between border-b pb-5">
-                <button className="text-lg font-semibold">
+                <h1 className="text-lg font-semibold">
                   Informations complémentaires
-                </button>
-                <span>
+                </h1>
+                <button>
                   <IoMdAdd className="font-bold" />
-                </span>
+                </button>
               </div>
-              <div className="hidden p-4 group-hover:block border-b pb-5 ">
-                <table className="border">
-                  <tr>
-                    <th>Couleur</th>
-                    <th>Taille</th>
+              <div className="hidden p-4 group-hover:block transition duration-300 border-b pb-5 ">
+                <table className="border ">
+                  <tr >
+                    <th className="border px-2 py-1">Couleur</th>
+                     <td className="border px-2 py-1">Noir, Orange, Blanc</td>
                   </tr>
-                  <tr>
-                    <th>Noir, Orange, Blanc</th>
-                    <th>XS, S, M, L, XL</th>
+                  <tr >
+                    <th className="border px-2 py-1">Taille</th>
+                    <td className="border px-2 py-1">XS, S, M, L, XL</td>
                   </tr>
                 </table>
               </div>
@@ -146,12 +146,12 @@ export default function ProductPage() {
           <div>
             <div className="group relative">
               <div className="flex justify-between border-b pb-5">
-                <button className="text-lg font-semibold">Avis (0)</button>{" "}
-                <span>
+                <h1 className="text-lg font-semibold">Avis (0)</h1>{" "}
+                <button>
                   <IoMdAdd className="font-bold" />
-                </span>
+                </button>
               </div>
-              <div className="hidden p-4 group-hover:block">
+              <div className="hidden p-4 group-hover:block transition duration-300">
                 <p className="text-gray-500">Il n’y a pas encore d’avis.</p>
                 <div className="border p-5 mt-2">
                   <h1 className="text-xl mb-2">
@@ -167,6 +167,7 @@ export default function ProductPage() {
                         <label htmlFor="">Votre avis *</label>
                         <textarea
                           placeholder="Message"
+                          required
                           className="border p-3 w-full h-32"
                         ></textarea>
                       </div>
@@ -175,6 +176,7 @@ export default function ProductPage() {
                           <label htmlFor="">Nom *</label>
                           <input
                             type="text"
+                            required
                             placeholder="Nom"
                             className="border p-3 w-full"
                           />
@@ -183,6 +185,7 @@ export default function ProductPage() {
                           <label htmlFor="">Email *</label>
                           <input
                             type="email"
+                            required
                             placeholder="Votre adresse e-mail *"
                             className="border p-3 w-full"
                           />

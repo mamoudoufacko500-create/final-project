@@ -30,7 +30,7 @@ export default function MenPage() {
           {SubMenu && (
             <div className="hidden p-4 group-hover:flex flex-col absolute bg-white/50 border border-white/30 rounded-xl gap-3 top-5 left-0 w-64 ">
               {SubMenu.map((SubMenu) => (
-                <NavLink className="hover:bg-white px-4 py-1" to={SubMenu.link}>
+                <NavLink className="hover:bg-white px-4 py-1 " to={SubMenu.link}>
                   {SubMenu.name}
                 </NavLink>
               ))}
@@ -39,7 +39,7 @@ export default function MenPage() {
         </div>
       </div>
       <div className="grid grid-cols-4 gap-6 ">
-        {ListProduct.map((card) => (
+        {ListProduct.filter((item)=> item.sex === "Men").map((card) => (
           <ProductCard key={card.id} {...card} />
         ))}
       </div>

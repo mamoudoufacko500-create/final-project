@@ -2,6 +2,8 @@ import React from "react";
 import { ListProduct } from "../data/data";
 import type { ListProductType } from "../data/type";
 import { Link } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
+import { FaRegEye } from "react-icons/fa6";
 
 export default function ProductCard({
   id,
@@ -11,10 +13,18 @@ export default function ProductCard({
   sex,
 }: ListProductType) {
   return (
-    <div className="bg-black/10 rounded-xl space-y-2 ">
-      <Link to={`/shop/${id}`}>
-      <img src={image} alt={name} className="w-70 rounded-xl  " />
+    <div className=" space-y-2 space-x-4 ">
+      <div className="relative group w-70">
+         <Link to={`/shop/${id}`} >
+      <img src={image} alt={name} className="w-full  " />
       </Link>
+    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-300 flex justify-end">
+    <div className="flex flex-col gap-3 p-4">
+      <Link to={`/shop/${id}`} className="text-white bg-black p-1 rounded-full"><FaCartShopping /></Link>
+      <Link to={`/shop/${id}`} className="text-white   bg-black p-1 rounded-full"><FaRegEye /></Link>
+    </div>
+    </div>
+      </div>
       <div className="p-5">
         <p className="font-semibold text-gray-500">{sex}</p>
         <h2 className="font-bold text-xl">{name}</h2>

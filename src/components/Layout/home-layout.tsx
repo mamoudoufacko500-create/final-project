@@ -39,7 +39,7 @@ export default function HomeLayout() {
           <Link to="" className="flex gap-2 items-center font-bold">
            <span>0,00 $</span><FaCartShopping />
           </Link>
-          <Link to="">
+          <Link to="/auth/login">
             <button className="cursor-pointer"> LOG IN</button>
           </Link> 
         </div>

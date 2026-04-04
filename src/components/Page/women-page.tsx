@@ -40,7 +40,7 @@ export default function WomenPage() {
         </div>
       </div>
       <div className="grid grid-cols-4 gap-6 ">
-        {ListProduct.map((card) => (
+        {ListProduct.filter((item)=> item.sex === "Women").map((card) => (
           <ProductCard key={card.id} {...card} />
         ))}
       </div>
