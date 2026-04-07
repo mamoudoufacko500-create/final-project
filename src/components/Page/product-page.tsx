@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { ListProduct } from "../../data/data";
 import { IoMdAdd } from "react-icons/io";
 import ProductCard from "../../elements/Product-card";
 
 export default function ProductPage() {
+    const [count, setCount] = useState(0);
+
+  const incrementer = () => {
+    setCount(count + 1);
+  };
   const { id } = useParams();
 
   const product = ListProduct.find((service) => service.id === Number(id));
@@ -52,9 +57,9 @@ export default function ProductPage() {
           </div>
           <div className="flex items-center gap-3 border-b pb-5">
             <div className="flex items-center border">
-              <button className="px-3 py-1 text-lg border">-</button>
-              <span className="px-4  ">1</span>
-              <button className="px-3 py-1 text-lg border">+</button>
+              <button onClick={() => setCount(count - 1)} className="px-3 py-1 text-lg border">-</button>
+              <span className="px-4  ">{count}</span>
+              <button onClick={incrementer} className="px-3 py-1 text-lg border">+</button>
             </div>
             <button className="bg-gray-500 text-white px-4 py-2 cursor-pointer">
               Ajouter au panier

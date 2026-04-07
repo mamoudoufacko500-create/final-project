@@ -3,18 +3,29 @@ import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
+import { toast } from 'sonner';
+import { MenuList } from '../../../data/data';
 
 export default function LoginPage() {
       const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setshowPassword] = useState(false);
+  const [isLoggedIn, setIsLoggedIn]= useState(false); 
 
    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     localStorage.setItem("Connexion-info", JSON.stringify({ email, password }));
-    // toast.success("Connexion reussie");
+    toast.success("Connexion reussie");
   };
+
+     const menuFinal = isLoggedIn ? [...MenuList,{name:"DASHBOARD", link:"/dashboard"}]: MenuList;
+  
+
+   const handleLogin = () => {
+  setIsLoggedIn(true);
+};
+
   return (
     <div className=' space-y-6'> 
         <div className='space-y-6'>
@@ -59,12 +70,16 @@ export default function LoginPage() {
         </div>
         <div className='flex justify-between'>
         <p className='text-gray-500'>No account  <Link to="/auth/register" className='underline'>Sign up</Link></p>
+        <Link to="/dashboard">
          <button
-          className="bg-gray-600 text-white cursor-pointer rounded-xl px-4 py-2"
+          className="bg-gray-600 text-white cursor-pointer hover:bg-white hover:text-black hover:border-2 rounded-xl px-4 py-2"
+          onClick={handleLogin}
           type="submit"
         >
           Login
         </button>
+        </Link>
+        
       </div>
       </form>
     </div>

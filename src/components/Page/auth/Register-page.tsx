@@ -3,6 +3,7 @@ import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
+import { toast } from 'sonner';
 
 export default function RegisterPage() {
       const [email, setEmail] = useState("");
@@ -10,11 +11,14 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [showPassword, setshowPassword] = useState(false);
 
-   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    localStorage.setItem("Connexion-info", JSON.stringify({ email, password }));
-    // toast.success("Connexion reussie");
+    localStorage.setItem(
+      "Inscription-info",
+      JSON.stringify({ email, password, name, }),
+    );
+    toast.success("Inscription reussie");
   };
   return (
     <div className=' space-y-6'> 
@@ -23,7 +27,7 @@ export default function RegisterPage() {
             <p>Login to your account to continue shopping</p>
         </div>  
         <form
-        onSubmit={handleSubmit}
+        onSubmit={handleRegister}
         className=" space-y-3"
       >
         <div className="flex  gap-2">

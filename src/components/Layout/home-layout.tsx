@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MenuList } from "../../data/data";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
@@ -9,9 +9,10 @@ import { FiTwitter } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 
 export default function HomeLayout() {
+  
   return (
     <div>
-      <header className="max-w-7xl mx-auto flex justify-between items-center py-5">
+      <header className="max-w-7xl mx-auto flex justify-between items-center py-5 ">
         <nav className="flex gap-5">
           {MenuList.map((menu) => (
             <NavLink
@@ -40,7 +41,7 @@ export default function HomeLayout() {
            <span>0,00 $</span><FaCartShopping />
           </Link>
           <Link to="/auth/login">
-            <button className="cursor-pointer"> LOG IN</button>
+            <button  className="cursor-pointer"> LOG IN</button>
           </Link> 
         </div>
       </header>
