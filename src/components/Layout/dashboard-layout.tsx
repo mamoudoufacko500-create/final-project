@@ -7,46 +7,20 @@ import UserButton from "../../elements/button";
 import { FaFacebookF } from "react-icons/fa";
 import { FiTwitter } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
-import { MenList, MenuList } from "../../data/data";
+import { board, MenList, MenuList } from "../../data/data";
 
 export default function DashboardLayout() {
  
   return (
     <div>
-      <header className="max-w-7xl mx-auto flex justify-between items-center py-5 border-b">
-        <nav className="flex gap-5">
-          {MenList.map((menu) => (
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-red-600" : "text-black"
-              }
-              to={menu.link}
-            >
-              {menu.name}
-            </NavLink>
-          ))}
-        </nav>
-        <Link to="/" className="text-2xl font-bold">
-          <h1 className="cursor-pointer">
-            T-SHIRTS <br />{" "}
-            <span className="text-sm text-gray-500 border-t-2 border-gray-500 tracking-[0.9em] md:text-base">
-              store
-            </span>
-          </h1>
-        </Link>
-        <div className="flex gap-15 items-center">
-          <Link to="">
-            <FaSearch />
-          </Link>
-          <Link to="" className="flex gap-2 items-center font-bold">
-            <span>0,00 $</span>
-            <FaCartShopping />
-          </Link>
-          <Link to="/auth/login">
-            <button  className="cursor-pointer"> LOG IN</button>
-          </Link>
-        </div>
-      </header>
+       <nav className='flex gap-9 py-5 border-b'>
+            <Link to="/bashbord" className='bg-black p-2 rounded-xl text-white'>Tableau de bord</Link>
+            {board.map((item)=>(
+              <NavLink to={item.link} className="hover:bg-gray-400 p-2 rounded-xl">
+                {item.name}
+              </NavLink>
+            ))}
+           </nav>
       <div className="max-w-6xl mx-auto">
         <Outlet />
       </div>

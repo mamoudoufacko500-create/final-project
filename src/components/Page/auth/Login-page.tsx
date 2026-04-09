@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
 import { toast } from 'sonner';
 import { MenuList } from '../../../data/data';
@@ -10,16 +10,17 @@ export default function LoginPage() {
       const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setshowPassword] = useState(false);
-  const [isLoggedIn, setIsLoggedIn]= useState(false); 
+  const [isLoggedIn, setIsLoggedIn]= useState(false);
+  const navigate =useNavigate() ;
 
    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     localStorage.setItem("Connexion-info", JSON.stringify({ email, password }));
     toast.success("Connexion reussie");
+    navigate("/dashboard");
   };
 
-     const menuFinal = isLoggedIn ? [...MenuList,{name:"DASHBOARD", link:"/dashboard"}]: MenuList;
   
 
    const handleLogin = () => {
@@ -52,9 +53,9 @@ export default function LoginPage() {
 
         <div className="flex flex-col gap-2">
           <label htmlFor="password">Password</label>
-          <div className="relative border-2 border-black rounded-xl px-4 py-2 ">
+          <div className="relative border-2 border-black rounded-xl ">
             <input
-              className=""
+              className="w-full  px-4 py-2"
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -70,7 +71,7 @@ export default function LoginPage() {
         </div>
         <div className='flex justify-between'>
         <p className='text-gray-500'>No account  <Link to="/auth/register" className='underline'>Sign up</Link></p>
-        <Link to="/dashboard">
+       
          <button
           className="bg-gray-600 text-white cursor-pointer hover:bg-white hover:text-black hover:border-2 rounded-xl px-4 py-2"
           onClick={handleLogin}
@@ -78,7 +79,6 @@ export default function LoginPage() {
         >
           Login
         </button>
-        </Link>
         
       </div>
       </form>

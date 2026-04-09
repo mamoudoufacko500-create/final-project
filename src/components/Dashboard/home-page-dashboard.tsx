@@ -6,21 +6,14 @@ import { FaUser } from "react-icons/fa";
 import { FaCube } from "react-icons/fa6";
 
 export default function HomePageDashboard() {
-  
+  //afficher dash
   return (
     <div>
       <div className='flex justify-between py-3'>
       <div>
 
       </div>
-     <nav className='flex gap-9 py-5 border-b'>
-      <Link to="/bashbord" className='bg-black p-2 rounded-xl text-white'>Tableau de bord</Link>
-      {board.map((item)=>(
-        <NavLink to={item.link} className="hover:bg-gray-400 p-2 rounded-xl">
-          {item.name}
-        </NavLink>
-      ))}
-     </nav>
+    
       </div>
       
       <div className='flex justify-center gap-10 py-10'>

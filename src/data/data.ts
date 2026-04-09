@@ -6,6 +6,7 @@ export const MenuList: MenuListType [] = [
     {link:"/men", name: "MEN"},
     {link:"/about", name: "ABOUT"},
     {link:"/contact", name: "CONTACT"},
+     {link:"/dashboard", name: "DASHBOARD"}, 
 ]
 
 export const MenList: MenListType [] = [

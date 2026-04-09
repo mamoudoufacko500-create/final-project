@@ -9,6 +9,8 @@ import { FiTwitter } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 
 export default function HomeLayout() {
+
+  
   
   return (
     <div>

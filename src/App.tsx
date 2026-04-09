@@ -13,7 +13,6 @@ import RegisterPage from "./components/Page/auth/Register-page";
 import DashboardLayout from "./components/Layout/dashboard-layout";
 import HomePageDashboard from "./components/Dashboard/home-page-dashboard";
 import { Toaster } from "sonner";
-import UserPage from "./components/Dashboard/user-page";
 import CreatePage from "./components/Dashboard/create-page";
 import ProduitPage from "./components/Dashboard/produit-page";
 
@@ -32,17 +31,17 @@ function App() {
           <Route path="/shop/:id" element={<ProductPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
-          {/* authentification */}
+        </Route>
+
+        {/* authentification */}
           <Route path="auth" element={<AuthLayout />}>
             <Route path="/auth/login" element={<LoginPage />} />
             <Route path="/auth/register" element={<RegisterPage />} />
           </Route>
-        </Route>
 
         {/* route dashboard */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<HomePageDashboard />} />
-          <Route path="user" element={<UserPage />} />
           <Route path="create" element={<CreatePage />} />
           <Route path="product" element={<ProduitPage />} /> 
         </Route>
