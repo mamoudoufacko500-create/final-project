@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { ListProduct } from "../../data/data";
 import { IoMdAdd } from "react-icons/io";
 import ProductCard from "../../elements/Product-card";
+import { FaWhatsapp } from "react-icons/fa";
+import Product from "../composants/Product";
 
 export default function ProductPage() {
     const [count, setCount] = useState(0);
@@ -65,6 +67,19 @@ export default function ProductPage() {
               Ajouter au panier
             </button>
           </div>
+           <button
+              onClick={() => {
+                const url = window.location.href;
+                const message = `Bonjour P'tits Trésors ! 🌟\nJe souhaite commander :\n*${Product.name}*\n\nLien : ${url}\nMerci !`;
+                window.open(
+                  `https://wa.me/221786041119?text=${encodeURIComponent(message)}`,
+                  "_blank",
+                );
+              }}
+              className="w-full bg-[#25D366] text-white py-6 flex items-center justify-center gap-3 font-bold uppercase tracking-widest hover:bg-[#128c7e] transition-colors shadow-none rounded-lg text-sm"
+            >
+              <FaWhatsapp size={24} /> Commander sur WhatsApp
+            </button>
           <div className="text-sm text-gray-500 flex items-center gap-3 border-b pb-5">
             <p>SKU : N/A</p>
             <p>
