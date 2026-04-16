@@ -11,12 +11,12 @@ export default function Product() {
                   Collection d'été
                 </h3>
                 <h1 className="text-xl font-bold">T-shirts populaires</h1>
-                <div className="grid grid-cols-4 gap-6 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
                   {ListProduct.map((card) => (
                     <ProductCard key={card.id} {...card} />
                   ))}
                 </div>
-                <div className="grid grid-cols-2 gap-5 py-9">
+                <div className=" px-4 grid grid-cols-1 md:grid-cols-2 gap-5 py-9 space-y-9">
                   <div className="space-y-2">
                     <img
                       src="/collection-02.jpg"
@@ -35,7 +35,7 @@ export default function Product() {
                     <img
                       src="/collection-02.jpg"
                       alt=""
-                      className="object-cover h-screen"
+                      className="object-cover h-screen "
                     />
                   </div>
                 </div>

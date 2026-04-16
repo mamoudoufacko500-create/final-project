@@ -1,31 +1,78 @@
-import { useState } from "react";
-
-
+import { useState, useEffect } from "react";
 
 export default function CreatePage() {
-  
+
+  const [nom, setNom] = useState('')
+  const [couleur, setCouleur] = useState('')
+  const [taille, setTaille] = useState('')
+  const [sexe, setSexe] = useState('')
+  const [image, setImage] = useState(null)
+
+  //  Charger depuis localStorage
+  const [produits, setProduits] = useState(() => {
+    const saved = localStorage.getItem("produits")
+    return saved ? JSON.parse(saved) : []
+  })
+
+  //  Sauvegarder automatiquement
+  useEffect(() => {
+    localStorage.setItem("produits", JSON.stringify(produits))
+  }, [produits])
+
+  //  Ajouter produit
+  const handleSubmit = (e:any) => {
+    e.preventDefault()
+
+    if (!nom || !couleur || !taille || !sexe) {
+      alert("Remplir tous les champs")
+      return
+    }
+
+    const nouveauProduit = {
+      id: Date.now(),
+      nom,
+      couleur,
+      taille,
+      sexe,
+      image: image ? URL.createObjectURL(image) : null
+    }
+
+    setProduits([...produits, nouveauProduit])
+
+    //  réinitialiser
+    setNom('')
+    setCouleur('')
+    setTaille('')
+    setSexe('')
+    setImage(null)
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-20 flex justify-center items-center">
- <form className="grid grid-cols-2 gap-4 mb-8">
+      
+      <form 
+        onSubmit={handleSubmit} 
+        className="grid grid-cols-2 gap-4 mb-8"
+      >
+        
         <input
-          name="name"
           placeholder="Nom"
+          value={nom}
+          onChange={(e) => setNom(e.target.value)}
           className="border p-2 rounded"
-          required
         />
 
         <input
-          name="color"
           placeholder="Couleur"
+          value={couleur}
+          onChange={(e) => setCouleur(e.target.value)}
           className="border p-2 rounded"
-          required
         />
 
         <select
-          name="size"
           className="border p-2 rounded"
-          required
+          value={taille}
+          onChange={(e) => setTaille(e.target.value)}
         >
           <option value="">Taille</option>
           <option>S</option>
@@ -35,9 +82,9 @@ export default function CreatePage() {
         </select>
 
         <select
-          name="gender"
           className="border p-2 rounded"
-          required
+          value={sexe}
+          onChange={(e) => setSexe(e.target.value)}
         >
           <option value="">Sexe</option>
           <option>Homme</option>
@@ -45,13 +92,21 @@ export default function CreatePage() {
           <option>Unisexe</option>
         </select>
 
-        <input type="file" className="col-span-2" />
+        <input 
+          type="file" 
+          className="col-span-2" 
+          onChange={(e) => setImage(e.target.files[0])} 
+        />
 
-
-        <button className="col-span-2 bg-black text-white p-2 rounded">
+        <button 
+          type="submit"
+          className="col-span-2 bg-black text-white p-2 rounded"
+        >
           Ajouter
         </button>
+
       </form>
+
     </div>
   );
 }

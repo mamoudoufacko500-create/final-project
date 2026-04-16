@@ -15,18 +15,8 @@ export type SubMenuType= {
     link:string;
   }
 
-  export type MenListType = {
-  link: string;
-  name: string;
-}
-
 export type heroType = {
   image:string;
   description:string;
   sex:string;
-}
-
-export type boardType ={
-  name:string;
-  link:string;
 }

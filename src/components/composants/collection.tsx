@@ -5,8 +5,8 @@ export default function Collection() {
   return (
     <div>
         <section className="py-20">
-                <div className="mx-auto max-w-6xl grid grid-cols-2 relative gap-10 items-center">
-                  <div className="bg-rose-300 absolute h-full top-7  w-[57%]"></div>
+                <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 relative gap-10 items-center">
+                  <div className="bg-rose-300 absolute h-screen md:h-full md:top-7 top-10 w-[57%]"></div>
                   <div className="relative">
                     <img
                       src="/collection-03.jpg"
@@ -14,7 +14,7 @@ export default function Collection() {
                       className="relative bottom-6 left-5  object-cover "
                     />
                   </div>
-                  <div className="space-y-5 relative">
+                  <div className="space-y-5  md:relative">
                     <h3 className="text-sm text-gray-500">Femmes</h3>
                     <h1 className="text-4xl font-bold">Collection Printemps-Été</h1>
                     <p>

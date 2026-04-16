@@ -39,8 +39,8 @@ export default function WomenPage() {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-6 ">
-        {ListProduct.filter((item)=> item.sex === "Women").map((card) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-6 ">
+        {ListProduct.filter((item) => item.sex === "Women").map((card) => (
           <ProductCard key={card.id} {...card} />
         ))}
       </div>

@@ -1,4 +1,4 @@
-import type {  boardType, heroType, ListProductType, MenListType, MenuListType } from "./type";
+import type {  heroType, ListProductType, MenuListType } from "./type";
 
 export const MenuList: MenuListType [] = [
     {link:"/shop", name: "BUY T-SHIRTS"},
@@ -9,7 +9,7 @@ export const MenuList: MenuListType [] = [
      {link:"/dashboard", name: "DASHBOARD"}, 
 ]
 
-export const MenList: MenListType [] = [
+export const MenList: MenuListType [] = [
     {link:"/shop", name: "BUY T-SHIRTS"},
     {link:"/women", name: "WOMEN"},
     {link:"/men", name: "MEN"},
@@ -31,12 +31,12 @@ export const ListProduct: ListProductType [] = [
 
 export const hero: heroType [] = [
     {image:"/hero.png",description:"Slick. Modern. Awesome.",sex:"Women"},
-    {image:"/hero1.jpg",description:"Bold. Strong. Confident",sex:"Men"},
-    {image:"/hero2.jpg",description:"Style for everyone. No limits.",sex:"Unisexe"},
+    {image:"/hero-m-removebg-preview.png",description:"Bold. Strong. Confident",sex:"Men"},
+    {image:"/Mockup.png",description:"Style for everyone. No limits.",sex:"Unisexe"},
 ]
 
-export const board: boardType [] = [
+export const board: MenuListType [] = [
+    {name:"Tableau de bord",link:"/dashboard"},
      {name:"Créer",link:"/dashboard/create"},
-      {name:"Utilisateur",link:"/dashboard/user"},
        {name:"Produit",link:"/dashboard/product"},
 ]

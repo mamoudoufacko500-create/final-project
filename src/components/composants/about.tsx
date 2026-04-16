@@ -9,7 +9,7 @@ export default function About() {
               <section className="mx-auto max-w-6xl flex flex-col items-center py-9 space-y-5">
                 <h3 className="text-sm text-gray-500">Collection d’été</h3>
                 <h1 className="text-5xl font-bold">On Sale T-Shirts</h1>
-                <div className="grid grid-cols-4 gap-6 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
                   {ListProduct.map((card) => (
                     <ProductCard key={card.id} {...card} />
                   ))}
@@ -28,7 +28,7 @@ export default function About() {
                     <h3 className="text-sm text-gray-500">Jane Oliver</h3>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 py-9 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 place-items-center py-9 gap-6">
                   <div>
                     <img src="/cat-men.jpg" alt="" className="" />
                     <Link to="" className="relative bottom-20 mx-7">

@@ -56,7 +56,7 @@ useEffect(() => {
           <img
             src={section.image}
             alt="model"
-            className="relative h-[600px]  object-contain "
+            className="relative h-[600px]  object-cover "
           />
         </div>
                    </div>

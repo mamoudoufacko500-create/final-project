@@ -213,7 +213,7 @@ export default function ProductPage() {
       </div>
       <div className="flex flex-col items-center gap-20">
         <h1 className="text-5xl font-bold">Produits associés</h1>
-        <div className="grid grid-cols-4 gap-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
           {ListProduct.map((card) => (
             <ProductCard key={card.id} {...card} />
           ))}
